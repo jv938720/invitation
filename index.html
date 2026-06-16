@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A Question For You ❤️</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            text-align: center;
+            overflow: hidden;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            margin-top: 150px;
+        }
+
+        .emoji {
+            font-size: 80px;
+        }
+
+        h1 {
+            color: #ff4d79;
+            font-size: 48px;
+        }
+
+        button {
+            border: none;
+            padding: 15px 35px;
+            margin: 10px;
+            border-radius: 30px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #yesBtn {
+            background-color: #ff4d79;
+            color: white;
+        }
+
+        #noBtn {
+            background-color: #e0e0e0;
+            position: absolute;
+        }
+
+        #message {
+            margin-top: 40px;
+            font-size: 32px;
+            color: #ff4d79;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="emoji">💌</div>
+
+    <h1>Did you ever think Kailee was cooler than me?</h1>
+
+    <button id="yesBtn">Yes ❤️</button>
+    <button id="noBtn">No</button>
+
+    <p id="message"></p>
+
+</div>
+
+<script>
+
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const message = document.getElementById("message");
+
+let attempts = 0;
+
+noBtn.addEventListener("mouseover", () => {
+
+    attempts++;
+
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 60);
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+
+    if (attempts === 5) {
+        yesBtn.style.transform = "scale(1.4)";
+    }
+
+    if (attempts === 10) {
+        yesBtn.style.transform = "scale(1.8)";
+    }
+});
+
+yesBtn.addEventListener("click", () => {
+
+    document.querySelector(".container").innerHTML = `
+        <div style="font-size:100px;">🎉</div>
+        <h1>Yay!</h1>
+        <p style="font-size:28px;color:#ff4d79;">
+            WOW I never thought this day would come 
+        </p>
+    `;
+});
+
+</script>
+
+</body>
+</html>
